@@ -59,7 +59,7 @@ Colleges.*
    ```bash
    $ source env/bin/activate
    ```
-   
+
    > If you want to deactivate your virtual environment at any point, simply
    > use the `deactivate` command.
 
@@ -68,6 +68,25 @@ Colleges.*
    ```bash
    (env)$ pip install -r requirements.txt
    ```
+
+## Getting a Yelp Developer Account
+
+1. Go to [https://www.yelp.com/signup](https://www.yelp.com/signup).
+2. Sign up for an account (and make sure to confirm it via email).
+3. Acquire an API Key by visiting the [Manage API Keys](https://www.yelp.com/developers/manage_api_keys)
+   page.
+
+   > For *Website URL* use `http://localhost:5000` since we will only be
+   > running this app on our local machines.
+
+4. Once successfully submitting the form, you should see four different keys/secrets
+   listed. We will come back to them later in the workshop, so copy and paste them
+   somehwere safe or leave this tab open.
+
+   > API Keys and secrets should be treated as if they are a password to your account.
+   > Never commit your secrets into a source control repository where they
+   > could be publicly accessed. Generally, avoid hard coding keys/secrets into
+   > your code -- even if it is just to quickly test!
 
 At this point, you should be ready to get started on the project. If at any point
 you have questions -- including questions about any of the setup above -- please
