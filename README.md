@@ -36,11 +36,11 @@ Colleges.*
 
 4. Now clone this repo with the following command:
    ```bash
-   $ git clone <repo-URL>
+   $ git clone https://github.com/5chackathon/hackweek-intermediate-webdev-sp2016.git hw-webdev
    ```
 5. Change your working directory to that of the clone repo:
    ```bash
-   $ cd <repoDir>
+   $ cd hw-webdev
    ```
 6. Create a new Python virtual environment:
    ```bash
@@ -61,4 +61,4 @@ Colleges.*
 
 At this point, you should be ready to get started on the project. If at any point
 you have questions -- including questions about any of the setup above -- please
-let use know and we would be more than happy to answer them!
+let us know and we would be more than happy to answer them!
