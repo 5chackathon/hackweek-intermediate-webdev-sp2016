@@ -89,3 +89,23 @@ Colleges.*
 At this point, you should be ready to get started on the project. If at any point
 you have questions -- including questions about any of the setup above -- please
 let us know and we would be more than happy to answer them!
+
+***
+
+## Client-Server Relationship
+
+## Hello, Flask!
+
+## Hello, {{ templating }}!
+
+## Integrating Yelp!
+
+***
+
+## Resources
+
+- [Flask Docs](http://flask.pocoo.org/docs/0.10/)
+- [Jinja2 Docs](http://jinja.pocoo.org/docs/dev/)
+- [Semantic UI Docs](http://semantic-ui.com/)
+- [Yelp API Documentation](https://www.yelp.com/developers/documentation/v2/overview)
+- [Yelp API Python Wrapper](https://github.com/gfairchild/yelpapi)
