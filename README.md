@@ -17,9 +17,11 @@ Colleges.*
 1. To begin, open up a new Terminal window. (On Macs, you can use `cmd+spacebar`
    or search for it in Spotlight.)
 2. Install `pip` which is a Python package manager. On the command-line, type:
+
    ```bash
    $ sudo easy_install pip
    ```
+
     > As a general note, the `sudo` command should be treated very carefully. It
     > allows you (or code you run with it) to operate at essentially the
     > root-level of your computer where you (or some malicious install scripts)
@@ -28,33 +30,41 @@ Colleges.*
     After pressing enter, proceed by typing in your password.
 3. Now that `pip` is installed, we will install a Python package with it called
    `virtualenv` with the following command:
+
    ```bash
    $ pip install --user virtualenv
    ```
+
    > The `--user` flag tells `pip` to only install it to your account instead of
    > globally on your system and does not require `sudo` privledges.
 
 4. Now clone this repo with the following command:
+
    ```bash
    $ git clone https://github.com/5chackathon/hackweek-intermediate-webdev-sp2016.git hw-webdev
    ```
 5. Change your working directory to that of the clone repo:
+
    ```bash
    $ cd hw-webdev
    ```
 6. Create a new Python virtual environment:
+
    ```bash
    $ virtualenv env
    ```
+
 7. Activate the virtual environment:
+
    ```bash
    $ source env/bin/activate
    ```
-
+   
    > If you want to deactivate your virtual environment at any point, simply
    > use the `deactivate` command.
 
 8. Install this project dependencies:
+
    ```bash
    (env)$ pip install -r requirements.txt
    ```
