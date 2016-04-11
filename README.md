@@ -11,8 +11,6 @@ Colleges.*
 
 ## Installation and Setup
 
-> We encourage everyone to follow the step-by-step walk through below, but if
-> you are pressed for time, please use this quick setup link: <setup-link>.
 
 1. To begin, open up a new Terminal window. (On Macs, you can use `cmd+spacebar`
    or search for it in Spotlight.)
