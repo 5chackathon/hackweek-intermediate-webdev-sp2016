@@ -47,7 +47,7 @@ so please follow them below, then scroll back up here to read the highlights.
 it again with more context.)
 
 For this project, we will be using `pip` which is the [Python Package Index](https://pypi.python.org/pypi)
-to install the dependencies which include [Flask][http://flask.pocoo.org/docs/0.10/],
+to install the dependencies which include [Flask][Flask],
 the package responsible (including its own dependencies) for creating a server and
 handling  server requests. `pip` allows
 you to install other software projects written in Python. It's a convenient
