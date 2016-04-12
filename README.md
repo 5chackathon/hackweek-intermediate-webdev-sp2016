@@ -160,10 +160,116 @@ Here are two quick examples:
 
 ### Hello, Flask!
 
+In the above walkthrough, we created a file called `application.py` and ran it
+to create the cannonical "Hello, World!" example. Take a second to head over
+to [Flask's official documentation page and quickstart](http://flask.pocoo.org/docs/0.10/quickstart/#a-minimal-application)
+for an explanation of the code in that file.
+
+### Routing
+
+In order to explore the power and usefulness of [routing](http://flask.pocoo.org/docs/0.10/quickstart/#routing)
+we created a few more endpoints for fun:
+
+```python
+
+# try http://localhost:5000/search?query=hi&other=world
+@app.route("/search")
+def search():
+  print(request.args.get("query"))
+  print(request.args.get("other"))
+  return "check the terminal"
+
+# try http://localhost:5000/pages/5chackathon
+@app.route("/pages/<id>")
+def get_page(id):
+  print(id)
+  return "check the terminal"
+```
+
+Using parameters and variables, we can easily generalize our endpoints to make
+them more useful and we can avoid having to hard code every single URL into our
+site.
+
 ### Hello, {{ templating }}!
 
-### Integrating Yelp!
+After completing a brief introduction to routing we moved on to discuss templating
+which is powered by Jinja in Flask. Templating allows us to create modular pieces
+of web pages that can have placeholder variables, loops, other logic that our server
+dynamically generates into an HTML page to return to a request. For a more in
+depth look at templating, visit the [Flask Templating Docs](http://flask.pocoo.org/docs/0.10/quickstart/#rendering-templates).
 
+> **A Brief Example and a Warning**
+>
+> On websites like Facebook and Twitter, every single user does not have
+> a page with their information coded into it. Instead, there is a generic template
+> that gets filled in with your info and data when someone requests your page.
+> The information that gets filled in can vary from everything from your name to
+> your profile picture.
+>
+>
+> **WARNING**: Although templating is very useful, dynamically generating content
+> from user supplied input can be dangerous especially if it contains malicous code.
+> Take a look at this [OWASP overview of Code Injection attacks][OWASPInject] and
+> click through the related links at the bottom including the **XSS Attack** which
+> is very common.
+>
+> Flask attempts to minimize possibilities of XSS attacks by auotescaping variables
+> in templates, but that does not mean your application can be completely safe nor
+> does it protect from other kinds of injection.
+
+For our project, we created a [`base.html`](/chirp/templates/base.html) that all
+our templates will extend. This template file has the basic CSS links and
+document structure.
+
+In `/chirp/templates` we created an [`index.html`](/chirp/templates/index.html)
+that contained the following code:
+
+```html
+{% extends "base.html" %}
+
+{% block title %}Yelp!{% endblock %}
+
+{% block body %}
+<form action="/search">
+    <div class="ui huge icon input">
+        <i class="search icon"></i>
+        <input name="location" type="text" placeholder="Search...">
+    </div>
+</form>
+{% endblock %}
+```
+
+Now when we visit `http://localhost:5000/` we can see the search bar and when we type
+a zip code in and hit enter, we get a `Page Not Found` at the URL
+`http://localhost:5000/search?location=91711`.
+
+To wrap-up Day I of the workshop we defined a `/search` endpoint and set it up
+to get data from Yelp! to then template into a page. On day II, we will review
+this step and continue making the application! If you didn't have a chance to
+create a `.env` file with your Yelp API info, follow the next section before
+continuing.
+
+### Yelp API Key Setup
+
+Ater acquiring a Yelp developer account and creating new API keys in the section
+*[Getting a Yelp Developer Account](#getting-a-yelp-developer-account)*, create
+the `.env` file be renaming `env-placeholder` to `.env` with the following command:
+
+```bash
+$ mv env-placeholder .env
+```
+
+Open this file and replace all the angle-bracketed text (including the angle-brackets themselves)
+with the corresponding credentials. `.env` is being ignored by git so you it doesn't
+get added to the repo where our secret keys would be accessible by everyone.
+
+> **Using Environment Variables in Python**
+>
+> Now that you have variables set in `.env` you can make your shell aware of them
+> by executing `source .env` which you will need to to with each new window/session.
+> To access the values in python, import `os` and use `os.environ['SOMEVAR']` or
+> `os.environ.get('SOMEVAR')` where the former will raise a `KeyError` if the
+> environment variable is not found.
 
 ## Installation and Setup
 
@@ -255,8 +361,10 @@ let us know and we would be more than happy to answer them!
 - [Mozilla Developer Network][MDN]
    - [MDN: What is a web server?][MDNWebServer]
    - [Mozilla Developer Network: What is a URL?][MDNAboutURL]
+- [OWASP: Code Injection Attacks][OWASPInject]
 
 [Flask]: http://flask.pocoo.org/docs/0.10/
 [MDN]: https://developer.mozilla.org/
 [MDNWebServer]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_web_server
 [MDNAboutURL]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_URL
+[OWASPInject]: https://www.owasp.org/index.php/Code_Injection
