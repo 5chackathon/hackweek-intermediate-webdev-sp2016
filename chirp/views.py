@@ -10,9 +10,14 @@ yelp_api = YelpAPI(os.environ['YELP_KEY'], os.environ['YELP_SECRET'],
 
 @app.route("/")
 def index():
-    yelp_rs = yelp_api.search_query(location=request.args.get("location"))
     return render_template("index.html")
 
 @app.route("/search")
 def search():
-    return request.args.get("location")
+    try:
+        yelp_rs = yelp_api.search_query(location=request.args.get("location"))
+        businesses = [{"image_url": i['image_url'][:-6] + 'ls.jpg', "busid": i["id"]}
+                  for i in yelp_rs['businesses']]
+    except (YelpAPI.YelpAPIError):
+        return "Oops! Error!"
+    return render_template("index.html", businesses=businesses)
