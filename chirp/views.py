@@ -8,4 +8,4 @@ from chirp import app
 
 @app.route("/")
 def index():
-    return "Hello, 5CHackathon!"
+    return render_template("index.html", name="Ross")
