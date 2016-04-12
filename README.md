@@ -248,12 +248,15 @@ let us know and we would be more than happy to answer them!
 ## Resources
 
 - [Flask Docs][Flask]
-- [Jinja2 Docs](http://jinja.pocoo.org/docs/dev/)
+  - [Jinja2 Docs](http://jinja.pocoo.org/docs/dev/)
 - [Semantic UI Docs](http://semantic-ui.com/)
 - [Yelp API Documentation](https://www.yelp.com/developers/documentation/v2/overview)
-- [Yelp API Python Wrapper](https://github.com/gfairchild/yelpapi)
-- [MDN: What is a web server?][MDNWebServer]
+  - [Yelp API Python Wrapper](https://github.com/gfairchild/yelpapi)
+- [Mozilla Developer Network][MDN]
+   - [MDN: What is a web server?][MDNWebServer]
+   - [Mozilla Developer Network: What is a URL?][MDNAboutURL]
 
 [Flask]: http://flask.pocoo.org/docs/0.10/
+[MDN]: https://developer.mozilla.org/
 [MDNWebServer]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_web_server
 [MDNAboutURL]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_URL
