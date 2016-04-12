@@ -3,5 +3,10 @@
 {% block title %}Yelp!{% endblock %}
 
 {% block body %}
-<h1>Hello, {{ name }}</h1>
+<form action="/search">
+    <div class="ui huge icon input">
+        <i class="search icon"></i>
+        <input name="location" type="text" placeholder="Search...">
+    </div>
+</form>
 {% endblock %}
