@@ -119,6 +119,45 @@ a greeting!
 
 ### Client-Server Relationship
 
+Now that we have the setup and installation out of the way, we are going to begin
+exploring the client-server relationship. What happens when you type in a URL
+like https://github.com/5CHackathon into your browser to visit a web-page?
+
+Your browser, which acts as the *client*, makes a request to the URL which is mapped
+to some IP address that eventually finds its way to a *server* which has code on
+it to handle your request and eventually return some data back to you which may
+be in the form of another HTML page especially if you are making the request from
+a browser. (Later, we will talk about JSON which is a data format often returned
+by requests to API endpoints to power applications.)
+
+> There is a good image and explantion here if you want to know more:
+> [Mozilla Developer Network: What is a Web Server?][MDNWebServer].
+
+When the server gets the request, it can always return one thing or you can
+write code to parse the URL and add some logic to run differnt code and return different
+information depdending on the URL. Luckily, Flask takes care of parsing the different
+parts of the URL and allows us to easily execute different functions and logic
+based on them.
+
+Take a quick look though [Mozilla Developer Network: What is a URL?][MDNAboutURL]
+for a formal explantion of URLs with emphasis on *parameters* and *"paths to files"*.
+
+> In Flask, paramaters will be accessed through
+> `request.args.get("paramater_name")` and "paths to files" will be accessed
+> through decorators and function parameters. We will discuss this in the next
+> section.
+
+Here are two quick examples:
+
+1. `https://github.com/5chackathon` where `/5chackathon` is considered a path to
+   a file or resource (which we will treat abstractly).
+
+2. `https://www.google.com/search?q=5chackathon` where there exists a parameter
+   `q` with a value of `5chackathon`.
+
+   > Not all characters can appear in URLs so you may see URLs with `%` signs that
+   > are encoded by the browser and then decoded by the server.
+
 ### Hello, Flask!
 
 ### Hello, {{ templating }}!
@@ -213,5 +252,8 @@ let us know and we would be more than happy to answer them!
 - [Semantic UI Docs](http://semantic-ui.com/)
 - [Yelp API Documentation](https://www.yelp.com/developers/documentation/v2/overview)
 - [Yelp API Python Wrapper](https://github.com/gfairchild/yelpapi)
+- [MDN: What is a web server?][MDNWebServer]
 
 [Flask]: http://flask.pocoo.org/docs/0.10/
+[MDNWebServer]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_web_server
+[MDNAboutURL]: https://developer.mozilla.org/en-US/Learn/Common_questions/What_is_a_URL
