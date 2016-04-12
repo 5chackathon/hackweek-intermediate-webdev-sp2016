@@ -13,6 +13,11 @@ Colleges.*
 
 - [About](#about)
 - [Day I: Hello, Flask!](#day-i)
+  - [Setting Up Your Development Environment](#setting-up-your-development-environment)
+  - [Client Server Relationship](#client-server-relationship)
+  - [Hello, Flask!](#hello-flask)
+  - [Hello, {{ templating }}!](#hello--templating-)
+  - [Yelp API Key Setup](#yelp-api-key-setup)
 - [Installation and Setup](#installation-and-setup)
 - [Getting a Yelp Developer Account and API Keys](#getting-a-yelp-developer-account)
 - [Resources](#resources)
