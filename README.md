@@ -49,7 +49,7 @@ Colleges.*
 6. Create a new Python virtual environment:
 
    ```bash
-   $ virtualenv env
+   $ python -m virtualenv env
    ```
 
 7. Activate the virtual environment:
