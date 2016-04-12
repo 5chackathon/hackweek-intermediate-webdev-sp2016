@@ -7,10 +7,25 @@
         <link rel="stylesheet" type="text/css" href="//oss.maxcdn.com/semantic-ui/2.1.4/semantic.min.css">
         <!-- Our Overrides and Additions -->
         <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
     </head>
     <body>
       <div id="main-container" class="ui center aligned container">
         {% block body %}{% endblock %}
       </div>
+
+      <script type="text/javascript">
+        $(document).ready( function() {
+
+          $('.thumb').hover( function() {
+              $(this).find('.img-title').fadeIn(300);
+          }, function() {
+              $(this).find('.img-title').fadeOut(100);
+          });
+
+        });
+      </script>
     </body>
 </html>

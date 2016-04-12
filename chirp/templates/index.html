@@ -1,19 +1,36 @@
-{% extends "base.html" %}
-
-{% block title %}Yelp!{% endblock %}
-
-{% block body %}
+{% extends "base.html" %} {% block title %}Yelp!{% endblock %} {% block body %}
 <form action="/search">
-    <div class="ui huge icon input">
-        <i class="search icon"></i>
-        <input name="location" type="text" placeholder="Search...">
-    </div>
+  <div class="ui huge icon input search">
+    <i class="search icon"></i>
+    <input name="location" type="text" placeholder="Search...">
+  </div>
 </form>
 {% if businesses %}
-<ul>
-{% for item in businesses %}
- <li>{{ item.busid }}</li>
-{% endfor %}
-</ul>
-{% endif %}
-{% endblock %}
+
+<div class="ui link cards centered">
+  {% for item in businesses %}
+
+  <div class="card">
+    <div class="image">
+      <img src="{{item.image_url}}">
+    </div>
+    <div class="content">
+      <div class="header">{{ item.name }}</div>
+      <div class="description">
+        {{ item.description }}
+      </div>
+    </div>
+    <div class="extra content">
+      <span class="center floated">
+        <img src="{{item.rating}}" alt="" />
+      </span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+  {% endif %}
+
+  <script type="text/javascript">
+    $(".ui.rating").rating();
+  </script>
+  {% endblock %}

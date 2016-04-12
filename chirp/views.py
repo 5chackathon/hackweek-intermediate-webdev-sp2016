@@ -16,7 +16,9 @@ def index():
 def search():
     try:
         yelp_rs = yelp_api.search_query(location=request.args.get("location"))
-        businesses = [{"image_url": i['image_url'][:-6] + 'ls.jpg', "busid": i["id"]}
+
+        print yelp_rs["businesses"][0]["snippet_text"]
+        businesses = [{"image_url": i['image_url'][:-6] + 'ls.jpg', "name": i["name"], "description" : i["snippet_text"], "rating" : i["rating_img_url"]}
                   for i in yelp_rs['businesses']]
     except (YelpAPI.YelpAPIError):
         return "Oops! Error!"
