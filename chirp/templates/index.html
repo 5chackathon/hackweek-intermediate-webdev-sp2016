@@ -9,10 +9,13 @@
         <input name="location" type="text" placeholder="Search...">
     </div>
 </form>
+
 {% if businesses %}
 <ul>
 {% for item in businesses %}
- <li>{{ item.busid }}</li>
+ <li>
+   <img src="{{ item }}" alt="Yelp image" />
+  </li>
 {% endfor %}
 </ul>
 {% endif %}
