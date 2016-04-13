@@ -1,55 +1,55 @@
 {% extends "base.html" %} {% block title %}Yelp!{% endblock %} {% block body %}
 <form action="/search">
-  <div class="ui huge icon input search">
-    <i class="search icon"></i>
-    <input name="location" type="text" placeholder="Search...">
-  </div>
+    <div class="ui huge icon input search">
+        <i class="search icon"></i>
+        <input name="location" type="text" placeholder="Search...">
+    </div>
 </form>
 {% if businesses %}
 
 <div class="ui special cards centered">
-  {% for item in businesses %}
+    {% for item in businesses %}
 
-  <div class="card">
-    <div class="{% if search_page %} blurring dimmable {% endif %} image">
-      {% if search_page %}
-      <div class="ui dimmer">
-        <div class="content">
-          <div class="center">
-              <a href="/save?id={{item.id}}">
-                <div class="ui inverted button">
-                Save
+    <div class="card">
+        <div class="{% if search_page %} blurring dimmable {% endif %} image">
+            {% if search_page %}
+            <div class="ui dimmer">
+                <div class="content">
+                    <div class="center">
+                        <form action="/save" method="post">
+                            <input name="id" type="hidden" value="{{item.id}}"/>
+                            <button type="submit" class="ui inverted button">
+                                Save
+                            </button>
+                        </form>
+                    </div>
                 </div>
-              </a>
-
-          </div>
+            </div>
+            {% endif %}
+            <img src="{{item.image_url}}">
         </div>
-      </div>
-      {% endif %}
-      <img src="{{item.image_url}}">
-    </div>
 
-    <div class="content">
-      <div class="header">{{ item.name }}</div>
-      <div class="description">
-        {{ item.description }}
-      </div>
-    </div>
-    <div class="extra content">
+        <div class="content">
+            <div class="header">{{ item.name }}</div>
+            <div class="description">
+                {{ item.description }}
+            </div>
+        </div>
+        <div class="extra content">
       <span class="center floated">
-        <img src="{{item.rating}}" alt="" />
+        <img src="{{item.rating}}" alt=""/>
       </span>
+        </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
 </div>
-  {% endif %}
+{% endif %}
 
-  {% if special_page %}
-    <script type="text/javascript">
+{% if search_page %}
+<script type="text/javascript">
       $('.special.cards .image').dimmer({
         on: 'hover'
       });
-    </script>
-  {% endif %}
-  {% endblock %}
+</script>
+{% endif %}
+{% endblock %}

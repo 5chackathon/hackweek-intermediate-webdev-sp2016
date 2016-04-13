@@ -2,25 +2,27 @@
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <title>{% block title %}{% endblock %}</title>
-  <!-- Semantic UI CSS -->
-  <link rel="stylesheet" type="text/css" href="//oss.maxcdn.com/semantic-ui/2.1.4/semantic.min.css">
-  <!-- Our Overrides and Additions -->
-  <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" type="text/css"
+          href="//oss.maxcdn.com/semantic-ui/2.1.4/semantic.min.css">
+    <!-- Our Overrides and Additions -->
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
 </head>
 
 <body>
-  <div class="ui three item menu">
+<div class="ui three item menu">
     <a class="item {% if search_page %} active {% endif %}" href="/">Search</a>
-    <a class="item {% if not search_page %} active {% endif %}" href="/favorites">Favorites</a>
-  </div>
-  <div id="main-container" class="ui center aligned container">
+    <a class="item {% if not search_page %} active {% endif %}"
+       href="/favorites">Favorites</a>
+</div>
+<div id="main-container" class="ui center aligned container">
     {% block body %}{% endblock %}
-  </div>
+</div>
 
 </body>
 
