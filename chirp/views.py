@@ -26,10 +26,10 @@ def search():
         return "Oops! Error!"
     return render_template("index.html", businesses=businesses, search_page = True)
 
-@app.route("/save")
+@app.route("/save", methods=["POST"])
 def save():
     try:
-        business_id = request.args.get("id")
+        business_id = request.form.get("id")
         business_rs = yelp_api.business_query(id=business_id)
         result = firebase.post('/Restaurants', {
             "image_url" : business_rs["image_url"][:-6] + "ls.jpg",
